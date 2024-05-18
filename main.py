@@ -6,16 +6,19 @@ from PySide6.QtGui import QIcon, QAction, QPixmap, QIcon
 from pkg.window import *
 from pkg.manager import *
 
+qt_app = QApplication(sys.argv)
+
 eve_windows = get_open_eve_windows()
 
-for window in eve_windows:
-    focus_eve_window(window.pid)
+overlays = []
 
-qt_app = QApplication(sys.argv)
+for window in eve_windows:
+    qt_overlay = OverlayWindow()
+    qt_overlay.pid = window.pid
+    qt_overlay.show()
+    overlays.append(qt_overlay)
 
 qt_window = MainWindow()
 
-qt_overlay = OverlayWindow()
-qt_overlay.show()
 qt_window.show()
 qt_app.exec()

@@ -3,14 +3,15 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QV
 from PySide6.QtGui import QAction, QIcon, Qt
 from PySide6.QtCore import QSize
 
-import objc
-from AppKit import NSApplication, NSWindowCollectionBehaviorCanJoinAllSpaces, NSWorkspace
-from Quartz import kCGScreenSaverWindowLevel
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("PyEMP")
+
+        screen = QApplication.primaryScreen()
+        screen_size = screen.size()
+
+        self.resize(screen_size.width() / 2, screen_size.height() / 2)
 
         main_widget = QWidget()
         main_layout = QVBoxLayout()
@@ -24,6 +25,7 @@ class MainWindow(QMainWindow):
         self.toolbar.setIconSize(QSize(25, 25))
         self.toolbar.setFloatable(False)
         self.toolbar.setMovable(False)
+        self.toolbar.setFixedWidth(screen_size.width() // 10)
         self.addToolBar(Qt.LeftToolBarArea, self.toolbar)
 
         self.add_toolbar_actions()

@@ -1,6 +1,6 @@
 # PyEMP
 PyEMP (Python EVE Mac Preview) is a simple and easy to use task manager for MacOS, which was greatly inspired by [EVE-O Preview](https://github.com/EveOPlus/eve-o-preview). 
-The reason for this project is because EVE-O Preview only works on Windows (and with limited support for Linux)
+The reason for this project is because EVE-O Preview only works on Windows (and with limited support for Linux), but with no support for MacOS. 
 
 This project does not change anything about EVE Online, it only focuses certain windows (EVE Online clients).
 
@@ -14,7 +14,7 @@ This project does not change anything about EVE Online, it only focuses certain 
 4. Start the application `python main.py`
 
 ## Dependencies
-- [MacOS](https://www.apple.com/de/macos/)
+- [MacOS](https://www.apple.com/de/macos/) Sonoma v14.5
 - [objc](https://github.com/ronaldoussoren/pyobjc) v10.2
 - [PySide6](https://wiki.qt.io/Qt_for_Python) v6.7.0
 

@@ -1,11 +1,10 @@
 import objc
 import subprocess
 
-from AppKit import NSWorkspace, NSRunningApplication
+from AppKit import NSRunningApplication
 from Quartz import CGWindowListCopyWindowInfo, kCGNullWindowID, kCGWindowListOptionAll
 
 from dataclasses import dataclass
-
 
 @dataclass
 class EVEWindow:
@@ -30,11 +29,10 @@ def get_open_eve_windows():
     return eve_windows
 
 def focus_eve_window(pid):
-    switch_to_application_space(pid)
     bring_window_to_front(pid)
 
 
-# Sends the window to front/focuses it
+# Sends the window to front/focuses it and switches to the correct virtual desktop
 def bring_window_to_front(pid):
     app = NSRunningApplication.runningApplicationWithProcessIdentifier_(pid)
     if app:
@@ -44,14 +42,14 @@ def bring_window_to_front(pid):
 
 
 # Switches to the virtual desktop screen of that window
-def switch_to_application_space(pid):
-    script = f'''
-    tell application "System Events"
-        set appProc to first process whose unix id is {pid}
-        set frontmost of appProc to true
-    end tell
-    '''
-    subprocess.call(['osascript', '-e', script])
+#def switch_to_application_space(pid):
+#    script = f'''
+#    tell application "System Events"
+#        set appProc to first process whose unix id is {pid}
+#        set frontmost of appProc to true
+#    end tell
+#    '''
+#    subprocess.call(['osascript', '-e', script])
 
 
 # Checks if window with pid is already inside the array
