@@ -13,7 +13,7 @@ from AppKit import NSApplication, NSBitmapImageRep
 import Quartz
 from Quartz.CoreGraphics import CGWindowListCopyWindowInfo, kCGNullWindowID, kCGWindowImageDefault, CGWindowListCreateImage
 
-from Quartz import CGImageDestinationCreateWithData, CGImageDestinationAddImage, CGImageDestinationFinalize, kUTTypePNG
+from Quartz import CGImageDestinationCreateWithData, CGImageDestinationAddImage, CGImageDestinationFinalize
 from Foundation import NSMutableData
 
 import io
